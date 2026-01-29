@@ -12,7 +12,6 @@ public class Solution {
         int m = maps.length;
 
 
-
         Solution solution = new Solution();
 
         solution.solution(maps);
