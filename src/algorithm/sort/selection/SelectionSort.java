@@ -4,7 +4,7 @@ public class SelectionSort {
 
     public static void main(String[] args) {
 
-        int[] a = {845,3,7,45,12,67,256,1};
+        int[] a = {5,4,3,2,1};
 
         selection_sort(a);
 
