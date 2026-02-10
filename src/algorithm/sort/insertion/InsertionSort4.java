@@ -1,5 +1,7 @@
 package algorithm.sort.insertion;
 
+import util.ComUtil;
+
 import java.util.Arrays;
 
 public class InsertionSort4 {
@@ -8,22 +10,20 @@ public class InsertionSort4 {
 
         insertionSort(a);
 
-        Arrays.stream(a).forEach(System.out::print);
+        ComUtil.print(a);
     }
 
     public static void insertionSort(int[] a) {
-
         for (int i = 1; i < a.length; i++) {
             int target = a[i];
             int j = i - 1;
 
-            while (j >= 0 && target < a[j]) {
+            while(j >= 0 && target < a[j]) {
                 a[j + 1] = a[j];
                 j--;
             }
 
             a[j + 1] = target;
         }
-
     }
 }

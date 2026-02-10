@@ -1,6 +1,6 @@
 package algorithm.sort.selection;
 
-import java.util.Arrays;
+import util.ComUtil;
 
 public class SelectionSort3 {
     public static void main(String[] args) {
@@ -8,26 +8,21 @@ public class SelectionSort3 {
 
         selectionSort(a);
 
-        Arrays.stream(a).forEach(System.out::print);
+        ComUtil.print(a);
+
     }
 
     public static void selectionSort(int[] a) {
-        for (int i = 0; i < a.length - 1; i++) {
+        for (int i = 0; i < a.length; i++) {
             int minIdx = i;
-
             for (int j = i + 1; j < a.length; j++) {
                 if (a[j] < a[minIdx]) {
                     minIdx = j;
                 }
             }
 
-            swap(a, i, minIdx);
+            ComUtil.swap(a,i,minIdx);
         }
     }
 
-    public static void swap(int[] a, int i, int j) {
-        int temp = a[i];
-        a[i] = a[j];
-        a[j] = temp;
-    }
 }
