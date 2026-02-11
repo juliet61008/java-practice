@@ -11,5 +11,6 @@ public class ComUtil {
 
     public static void print(int[] a) {
         Arrays.stream(a).forEach(System.out::print);
+        System.out.println();
     }
 }
