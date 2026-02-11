@@ -10,7 +10,7 @@ public class ComUtil {
     }
 
     public static void print(int[] a) {
-        Arrays.stream(a).forEach(System.out::print);
+        Arrays.stream(a).forEach(obj -> System.out.print(obj + " "));
         System.out.println();
     }
 }
