@@ -45,42 +45,34 @@ public class Solution {
 //        for (int i = 0; i < chars.length; i++) {
 //            System.out.println((int)chars[i]);
 //        }
+        System.out.println('Z'-'Y');
     }
 
     public static int solution(String name) {
         name = name.toUpperCase();
-        int answer = 0;
         char[] chars = name.toCharArray();
+        int n = name.length();
 
-        // 좌
-        if (chars[0] == 'A') {
-            int num = 1;
-
-            for (int i = 1; i < chars.length; i++) {
-                if (chars[i - 1] != chars[i]) {
-                    break;
-                }
-                num++;
-            }
-
-            answer += chars.length - num;
-        }
-        // 우
-        else {
-            for (int i = 0; i < chars.length; i++) {
-                answer++;
-            }
-        }
-
-        for (int i = 0; i < chars.length; i++) {
-
-            // 상
+        // 상하 이동 (알파벳 변경)
+        int answer = 0;
+        for (int i = 0; i < n; i++) {
             int up = chars[i] - 'A';
-            // 하
             int down = 'Z' - chars[i] + 1;
-            answer+=Math.min(up, down);
-
+            answer += Math.min(up, down);
         }
+
+        // 좌우 이동
+        int move = n - 1;
+        for (int i = 0; i < n; i++) {
+            int next = i + 1;
+            while (next < n && chars[next] == 'A') {
+                next++;
+            }
+            move = Math.min(move, i * 2 + (n - next));
+            move = Math.min(move, (n - next) * 2 + i);
+        }
+
+        answer += move;
         return answer;
     }
 }
